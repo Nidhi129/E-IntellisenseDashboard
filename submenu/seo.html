@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>E-Intellisense Dashboard</title>
+    <link rel="title icon" href="images/title-img.png">
+		<!-- Bootstrap CSS CDN -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+		<!-- Our Custom CSS -->
+		<link rel="stylesheet" href="/style.css">
+		<!-- Chartjs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+		<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<!-- Sidebar  -->
+			<nav id="sidebar">
+				<div class="sidebar-header">
+					<h3>E-Intellisense Dashboard</h3>
+				</div>
+
+				<ul class="list-unstyled components">
+					<li class="active">
+						<!-- <a href="#" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+              <i class="fas fa-home"></i> -->
+              <a href="/index.html">
+							Dashboard
+						</a>
+					</li>
+					<li>
+						<a href="socialmedia.html">
+							<i class="fas fa-question"></i>
+							Social Media
+						</a>
+					</li>
+					<!-- <a href="/submenu/projectprogress.html" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> -->
+					<li>
+						<a href="seo.html">
+							<i class="fas fa-copy"></i>
+							SEO
+						</a>
+					</li>
+						<!-- <ul class="collapse list-unstyled" id="pageSubmenu">
+							<li>
+								<a href="#">Profile</a>
+							</li>
+							<li>
+								<a href="#">Page 2</a>
+							</li>
+							<li>
+								<a href="#">Page 3</a>
+							</li>
+						</ul> -->
+					<li>
+						<a href="projectprogress.html">
+							<i class="fas fa-briefcase"></i>
+							Project Progress
+						</a>
+					</li>
+				</ul>
+			</nav>
+
+			<!-- Page Content  -->
+			<div id="content">
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+					<div class="container-fluid">
+						<button type="button" id="sidebarCollapse" class="btn sidebarbtn">
+							<i class="fas fa-align-left"></i>
+							<span></span>
+						</button>
+						<button class="btn sidebarbtn1 d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<i class="fas fa-align-justify"></i>
+						</button>
+
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<div class="col-md-5 col-sm-4 ml-auto">
+                <form>
+                  <div class="input-group">
+                    <input type="text" class="form-control search-input" placeholder="Search...">
+                    <button type="button" class="btn btn-white search-button"><i class="fas fa-search text-danger"></i></button>
+                  </div>
+                </form>
+              </div>
+							<div class="col-md-2">
+                <ul class="navbar-nav">
+                  <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i class="fas fa-comments text-muted fa-lg"></i></a></li>
+                  <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i class="fas fa-bell text-muted fa-lg"></i></a></li>
+                  <li class="nav-item icon-parent"><a href="#" class="nav-link" data-toggle="modal" data-target="#sign-out"><i class="fas fa-sign-out-alt text-danger fa-lg"></i></a></li>
+                </ul>
+              </div>
+						</div>
+					</div>
+				</nav>
+
+        <div class="maincontent">
+          <!-- modal -->
+          <div class="modal fade" id="sign-out">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Want to leave?</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  Press logout to leave
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Stay Here</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Logout</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end of modal -->
+
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xl-12 col-lg-12 col-md-12 ml-auto topoverview">
+								<div class="row">
+									<div class="col-xl-4 col-sm-6 p-2">
+										<div class="card gradient-deepblue">
+											<div class="card-body">
+												<h5 class="text-white mb-0">9526 <span class="float-right"><i class="fa fa-laptop"></i></span></h5>
+												<div class="progress my-3" style="height:3px;">
+													<div class="progress-bar" style="width:55%"></div>
+												</div>
+												<p class="mb-0 text-white small-font">Overall Sessions <span class="float-right">+4.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-sm-6 p-2">
+										<div class="card gradient-orange">
+											<div class="card-body">
+												<h5 class="text-white mb-0">8323 <span class="float-right"><i class="fa fa-eye"></i></span></h5>
+												<div class="progress my-3" style="height:3px;">
+													<div class="progress-bar" style="width:55%"></div>
+												</div>
+												<p class="mb-0 text-white small-font">Avg. Time on Site <span class="float-right">+1.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-sm-6 p-2">
+										<div class="card gradient-purple">
+											<div class="card-body">
+												<h5 class="text-white mb-0">6200 <span class="float-right"><i class="fas fa-percentage"></i></span></h5>
+													<div class="progress my-3" style="height:3px;">
+														<div class="progress-bar" style="width:55%"></div>
+													</div>
+												<p class="mb-0 text-white small-font">Bounce Rate <span class="float-right">+5.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-sm-6 p-2">
+										<div class="card gradient-orange">
+											<div class="card-body">
+												<h5 class="text-white mb-0">8323 <span class="float-right"><i class="fa fa-clock"></i></span></h5>
+												<div class="progress my-3" style="height:3px;">
+													<div class="progress-bar" style="width:55%"></div>
+												</div>
+												<p class="mb-0 text-white small-font">Avg. Rate Per Visit <span class="float-right">+1.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-sm-6 p-2">
+										<div class="card gradient-purple">
+											<div class="card-body">
+												<h5 class="text-white mb-0">6200 <span class="float-right"><i class="fas fa-calculator"></i></span></h5>
+													<div class="progress my-3" style="height:3px;">
+														<div class="progress-bar" style="width:55%"></div>
+													</div>
+												<p class="mb-0 text-white small-font">Total Conversions <span class="float-right">+5.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-sm-6 p-2">
+										<div class="card gradient-deepblue">
+											<div class="card-body">
+												<h5 class="text-white mb-0">9526 <span class="float-right"><i class="fa fa-dollar-sign"></i></span></h5>
+												<div class="progress my-3" style="height:3px;">
+													<div class="progress-bar" style="width:55%"></div>
+												</div>
+												<p class="mb-0 text-white small-font">Goal Value <span class="float-right">+4.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+											</div>
+										</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="container-fluid mt-4 p-0 box">
+						<div class="row p-3">
+							<div class="col-md-6">
+								<h5>Web Traffic Targets(This Month)</h5>
+								<table class="table table-striped" style="font-size:13px; font-weight:500;color: #6b6b6b;">
+									<thead>
+										<tr>
+											<th>Channel</th>
+											<th>Progress</th>
+											<th>Sessions</th>
+											<th>Conversion Rate</th>
+											<th>Avg Time</th>
+											<th>Bounce Rate</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Organic</td>
+											<td>Doe</td>
+											<td>243,737</td>
+											<td>5.63%</td>
+											<td>5m:48s</td>
+											<td>41.66%</td>
+										</tr>
+										<tr>
+											<td>Display</td>
+											<td></td>
+											<td>112,378</td>
+											<td>1.98%</td>
+											<td>0m:37s</td>
+											<td>81.12%</td>
+										</tr>
+										<tr>
+											<td>Direct</td>
+											<td></td>
+											<td>47,324</td>
+											<td>8.53%</td>
+											<td>5m:12s</td>
+											<td>35.13%</td>
+										</tr>
+										<tr>
+											<td>Paid</td>
+											<td></td>
+											<td>13,324</td>
+											<td>13.53%</td>
+											<td>1m:12s</td>
+											<td>66.13%</td>
+										</tr>
+										<tr>
+											<td>Referral</td>
+											<td></td>
+											<td>12,324</td>
+											<td>26.53%</td>
+											<td>6m:12s</td>
+											<td>34.13%</td>
+										</tr>
+										<tr>
+											<td>Social</td>
+											<td></td>
+											<td>3,324</td>
+											<td>5.53%</td>
+											<td>4m:12s</td>
+											<td>55.13%</td>
+										</tr>
+										<tr>
+											<td>Email</td>
+											<td></td>
+											<td>1,324</td>
+											<td>11.53%</td>
+											<td>7m:12s</td>
+											<td>28.13%</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="col-md-6">
+								<h5>Top Keywords</h5>
+								<table class="table table-striped" style="font-size:13px; font-weight:500;color: #6b6b6b;">
+									<thead>
+										<tr>
+											<th>Keyword</th>
+											<th>Volume</th>
+											<th>KD %</th>
+											<th>SF</th>
+											<th>CPC $</th>
+											<th>Results</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Yahoo finance</td>
+											<td>4,090,000</td>
+											<td>89.40</td>
+											<td>6%</td>
+											<td>5m:48s</td>
+											<td>12</td>
+										</tr>
+										<tr>
+											<td>Finance</td>
+											<td>550,000</td>
+											<td>112,378</td>
+											<td>1.98%</td>
+											<td>0m:37s</td>
+											<td>3.5B</td>
+										</tr>
+										<tr>
+											<td>Google finance</td>
+											<td>368,000</td>
+											<td>47,324</td>
+											<td>8.53%</td>
+											<td>5m:12s</td>
+											<td>97M</td>
+										</tr>
+										<tr>
+											<td>Finances</td>
+											<td>301,000</td>
+											<td>13,324</td>
+											<td>13.53%</td>
+											<td>1m:12s</td>
+											<td>1.7B</td>
+										</tr>
+										<tr>
+											<td>World finance</td>
+											<td>201,000</td>
+											<td>12,324</td>
+											<td>26.53%</td>
+											<td>6m:12s</td>
+											<td>20.5M</td>
+										</tr>
+										<tr>
+											<td>Social</td>
+											<td>201,000</td>
+											<td>3,324</td>
+											<td>5.53%</td>
+											<td>4m:12s</td>
+											<td>1.4B</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="row p-3">
+							<div class="col-md-6">
+								<h5>Geo Sources</h5>
+								<table class="table table-striped" style="font-size:13px; font-weight:500;color: #6b6b6b;">
+									<thead>
+										<tr>
+											<th>Country</th>
+											<th>Sessions</th>
+											<th>New Sessions</th>
+											<th>New Users</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><img src="/images/usa.svg">United States</td>
+											<td>1,122</td>
+											<td>75.49%</td>
+											<td>847</td>
+										</tr>
+										<tr>
+											<td><img src="/images/uk.svg">United Kingdom</td>
+											<td>175</td>
+											<td>89.14%</td>
+											<td>156</td>
+										</tr>
+										<tr>
+											<td><img src="/images/australia.svg">Australia</td>
+											<td>80</td>
+											<td>73.75</td>
+											<td>59</td>
+										</tr>
+										<tr>
+											<td><img src="/images/canada.svg">Canada</td>
+											<td>74</td>
+											<td>81.08%</td>
+											<td>60</td>
+										</tr>
+										<tr>
+											<td><img src="/images/india.svg">India</td>
+											<td>30</td>
+											<td>100%</td>
+											<td>30</td>
+										</tr>
+										<tr>
+											<td><img src="/images/brazil.svg">Brazil</td>
+											<td>22</td>
+											<td>100%</td>
+											<td>22</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="col-md-6">
+								<ul class="nav border-bottom" style="height:34px;">
+									<li class="nav-item">
+										<h5 class="text-center mb-4 nav-item-modal">On page SEO</h5>
+									</li>
+									<li class="nav-item ml-auto text-primary seobtn"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#onpageseo">
+										View full report
+									</button></a></li>
+								</ul>
+								<canvas id="myChart5"></canvas>
+								<div class="text-center mt-3">
+								<div class="d-flex">
+								<h6><span class="st-sm1 st-rg1" style="background-color:#C62E65; color:#fff; margin-right:14px; padding-left:8px; padding-right:8px;">St</span>Strategy Ideas<span class="st-sm2 st-rg2" style="margin-left:49px;">5</span></h6>
+								<h6><span class="ba-sm1 ba-rg1" style="background-color:#36caab; color:#fff; margin-right:10px; margin-left: 22px; padding-left:6px; padding-right:6px;">Ba</span class="ba-sm2 ba-rg2">Backlinks Ideas<span style="margin-left:8px;">43</span></h6>
+							</div>
+							<div class="d-flex">
+								<h6><span class="te-sm1 te-rg1" style="background-color:#34495e; color:#fff; margin-right:10px; padding-left:7px; padding-right:7px; ">Te</span>Technical SEO Ideas<span class="te-sm2 te-rg2" style="margin-left:8px;">44</span></h6>
+								<h6><span class="se-sm1 se-rg1" style="background-color:#b370cf; color:#fff; margin-left: 20px; margin-right:10px; padding-left:6px; padding-right:6px;">Se</span>Semantic Ideas<span class="se-sm2 se-rg2" style="margin-left:9px;">45</span></h6>
+							</div>
+								
+								</div>
+								<h6><span class="co-sm1 co-rg1" style="background-color:purple; color:#fff; margin-right:10px; padding-left:5px; padding-right:5px;">Co</span>Content Ideas<span class="co-sm2 co-rg2" style="margin-left:51px;">93</span></h6>
+							</div>
+						</div>
+						<div class="row p-3">
+							<div class="col-md-6">
+								<ul class="nav border-bottom" style="height:34px;">
+									<li class="nav-item">
+										<h5 class="text-center mb-4 nav-item-modal">New / Returning Visitors</h5>
+									</li>
+									<li class="nav-item ml-auto text-primary seobtn"><button type="button" class="btn btn-primary visitorbtn" data-toggle="modal" data-target="#visitors">
+										View full report
+									</button></li>
+
+									<!-- The Modal -->
+									<div class="modal" id="visitors">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<!-- Modal Header -->
+												<div class="modal-header">
+													<button type="button" class="btn btn-danger ml-auto" data-dismiss="modal">&times;</button>
+												</div>
+												<!-- Modal body -->
+												<div class="modal-body">
+													<!-- Backlinks Full Report Start -->
+													<div class="container-fluid bg-white mt-3 box">
+														<div class="row">
+															<div class="col-md-12">
+																<ul class="nav mt-3 mb-3">
+																	<li class="nav-item border-right">
+																		<a class="nav-link">Authority Score<h3>15</h3></a>
+																	</li>
+																	<li class="nav-item border-right">
+																		<a class="nav-link">Referring Domains<h3>42</h3></a>
+																	</li>
+																	<li class="nav-item border-right">
+																		<a class="nav-link">Backlinks<h3>238</h3></a>
+																	</li>
+																	<li class="nav-item border-right">
+																		<a class="nav-link">Monthly Visits<h3 class="text-secondary">n/a</h3></a>
+																	</li>
+																	<li class="nav-item border-right">
+																		<a class="nav-link">Keywords<h3>20</h3></a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-6">
+																<div class="card">
+																	<div class="border p-3">
+																		<h5 class="pb-3">Categories Of Referring Domains</h5>
+																		<p class="bl-font">Business & Industrial</p>
+																		<div class="progress mb-2">
+																			<div class="progress-bar bg-primary" style="width:70%"></div>
+																		</div>
+																		<p class="bl-font">Web Stats & Analytics</p>
+																		<div class="progress mb-2">
+																			<div class="progress-bar bg-primary" style="width:80%"></div>
+																		</div>
+																		<p class="bl-font">Search Engine Optimization & Marketing</p>
+																		<div class="progress mb-2">
+																			<div class="progress-bar bg-primary" style="width:40%"></div>
+																		</div>
+																		<p class="bl-font">Search Engines</p>
+																		<div class="progress mb-2">
+																			<div class="progress-bar bg-primary" style="width:30%"></div>
+																		</div>
+																		<p class="bl-font">Web Design & Development</p>
+																		<div class="progress mb-2">
+																			<div class="progress-bar bg-primary" style="width:60%"></div>
+																		</div>
+																		<button type="button" class="btn btn-secondary mt-2">View full report</button>
+																	</div> 
+																</div> 
+															</div>
+															<div class="col-md-6">
+																<div class="card">
+																	<div class="border p-3">
+																		<h5 class="pb-3">Top Anchors</h5>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-primary" style="width:80%">marketwithus.com</div>
+																		</div>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-primary" style="width:60%">digitalmarketing.com</div>
+																		</div>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-primary" style="width:30%">besttraders.com</div>
+																		</div>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-primary" style="width:50%">learnmarketing.com</div>
+																		</div>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-primary" style="width:70%">digitalworld.com</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="row mt-4">
+															<div class="col-md-6">
+																<div class="card">
+																	<div class="border p-3">
+																		<h5 class="pb-3">Referring Domains by Authority Score</h5>
+																		<h6 class="progress-label-l text-secondary">91-100</h6>
+																		<h6 class="progress-label-r text-secondary">25</h6>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-success" style="width:3%"></div>
+																		</div>
+																		<h6 class="progress-label-l text-secondary">81-90</h6>
+																		<h6 class="progress-label-r text-secondary">303</h6>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-success" style="width:3%"></div>
+																		</div>
+																		<h6 class="progress-label-l text-secondary">71-80</h6>
+																		<h6 class="progress-label-r text-secondary">1.9K</h6>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-primary" style="width:10%"></div>
+																		</div>
+																		<h6 class="progress-label-l text-secondary">61-70</h6>
+																		<h6 class="progress-label-r text-secondary">5.1K</h6>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-primary" style="width:40%"></div>
+																		</div>
+																		<h6 class="progress-label-l text-secondary">51-60</h6>
+																		<h6 class="progress-label-r text-secondary">9.4K</h6>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-primary" style="width:60%"></div>
+																		</div>
+																		<h6 class="progress-label-l text-secondary">41-50</h6>
+																		<h6 class="progress-label-r text-secondary">12.2K</h6>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-primary" style="width:80%"></div>
+																		</div>
+																	</div>
+																</div> 
+															</div>
+															<div class="col-md-6">
+																<div class="card">
+																	<div class="border p-3">
+																		<h5 class="pb-3">Backlink Types</h5>
+																		<h6 class="progress-label-l text-secondary">Text</h6>
+																		<h6 class="progress-label-r text-secondary">16.1M</h6>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-primary" style="width:76%"></div>
+																		</div>
+																		<h6 class="progress-label-l text-secondary">Image</h6>
+																		<h6 class="progress-label-r text-secondary">303</h6>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-primary" style="width:50%"></div>
+																		</div>
+																		<h6 class="progress-label-l text-secondary">Form</h6>
+																		<h6 class="progress-label-r text-secondary">63.3K</h6>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-primary" style="width:30%"></div>
+																		</div>
+																		<h6 class="progress-label-l text-secondary">Frame</h6>
+																		<h6 class="progress-label-r text-secondary">16.8K</h6>
+																		<div class="progress mb-3" style="height: 27px;">
+																			<div class="progress-bar bg-primary" style="width:30%"></div>
+																		</div>
+																	</div>
+																</div> 
+															</div>
+														</div>
+													</div>
+													<!-- Follow/Unfollow Full Report End -->
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- Modal end -->
+
+									<!-- The Modal -->
+									<div class="modal" id="backlinks">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+
+												<!-- Modal Header -->
+												<div class="modal-header">
+													<button type="button" class="btn btn-danger ml-auto" data-dismiss="modal">&times;</button>
+												</div>
+
+												<!-- Modal body -->
+												<div class="modal-body">
+													<!-- Backlinks Full Report Start -->
+													<div class="container-fluid bg-white mt-3 box">
+														<div class="row pt-3">
+															<div class="col-md-12">
+																<ul class="nav">
+																	<li class="nav-item">
+																		<a class="nav-link pb-1"><h6 class="mb-0">Move group of backlinks</h6>
+																		</a>
+																		<div class="d-flex ml-3">
+																			<div class="dropdown">
+																				<button type="button" class="btn btn-success pl-1 pr-1 pt-0 pb-1 mt-1 mr-2 dropdown-toggle" data-toggle="dropdown">
+																					Keep
+																				</button>
+																				<div class="dropdown-menu">
+																					<a class="dropdown-item" href="#">Link 1</a>
+																					<a class="dropdown-item" href="#">Link 2</a>
+																					<a class="dropdown-item" href="#">Link 3</a>
+																				</div>
+																			</div>
+																			<div class="dropdown">
+																				<button type="button" class="btn btn-danger pl-1 pr-1 pt-0 pb-1 mt-1 mr-2 dropdown-toggle" data-toggle="dropdown">
+																					Delete
+																				</button>
+																				<div class="dropdown-menu">
+																					<a class="dropdown-item" href="#">Link 1</a>
+																					<a class="dropdown-item" href="#">Link 2</a>
+																					<a class="dropdown-item" href="#">Link 3</a>
+																				</div>
+																			</div>
+																		</div>
+																			<!-- <span><button type="button" class="btn btn-danger pl-1 pr-1 pt-0 pb-1 mt-1">Delete<i class="fas fa-chevron-down fa-xs ml-1 mt-2"></i></button>
+																				
+																			</span> 
+																		<span></span>
+																		</a> -->
+																	</li>
+																	<li class="nav-item ml-auto">
+																		<a class="nav-link pb-1"><h6 class="mb-0">Group by</h6></a>
+																		<button type="button" class="btn btn-secondary pl-1 pr-1 pt-0 pb-1 mt-1">Domain</button>
+																		<button type="button" class="btn btn-secondary pl-1 pr-1 pt-0 pb-1 mt-1">URL</button>
+																	</li>
+																</ul>
+																<table class="table table-striped table-hover text-center mt-3">
+																	<thead>
+																		<tr>
+																			<th>
+																				<input type="checkbox" id="a" name="b" value="c">
+																			</th>
+																			<th>Page Title|Source URL</th>
+																			<th>Anchor URL</th>
+																			<th>Toxic Score</th>
+																			<th>Actions</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																		<tr>
+																			<td><input type="checkbox" id="a" name="b" value="c"></td>
+																			<td>datacoresystems.com/ </td>
+																			<td>ailabs.academy/</td>
+																			<td>19</td>
+																			<td><button type="button" class="btn btn-success pl-1 pr-1 pt-0 pb-1 mt-1 mr-2">Keep</button><button type="button" class="btn btn-danger pl-1 pr-1 pt-0 pb-1 mt-1 mr-2">Delete</button></td>
+																		</tr>
+																		<tr>
+																			<td><input type="checkbox" id="a" name="b" value="c"></td>
+																			<td>www.officialwebsites.in/</td>
+																			<td>ailabs.academy/view </td>
+																			<td>19</td>
+																			<td><button type="button" class="btn btn-success pl-1 pr-1 pt-0 pb-1 mt-1 mr-2">Keep</button><button type="button" class="btn btn-danger pl-1 pr-1 pt-0 pb-1 mt-1 mr-2">Delete</button></td>
+																		</tr>
+																		<tr>
+																			<td><input type="checkbox" id="a" name="b" value="c"></td>
+																			<td> senco.dcsdev.org/dcsnew/ </td>
+																			<td>ailabs.academy/one </td>
+																			<td>10</td>
+																			<td><button type="button" class="btn btn-success pl-1 pr-1 pt-0 pb-1 mt-1 mr-2">Keep</button><button type="button" class="btn btn-danger pl-1 pr-1 pt-0 pb-1 mt-1 mr-2">Delete</button></td>
+																		</tr>
+																		<tr>
+																			<td><input type="checkbox" id="a" name="b" value="c"></td>
+																			<td>dcsdev.org/dcsnew/</td>
+																			<td>ailabs.academy/ai</td>
+																			<td>10</td>
+																			<td><button type="button" class="btn btn-success pl-1 pr-1 pt-0 pb-1 mt-1 mr-2">Keep</button><button type="button" class="btn btn-danger pl-1 pr-1 pt-0 pb-1 mt-1 mr-2">Delete</button></td>
+																		</tr>
+																		<tr>
+																			<td><input type="checkbox" id="a" name="b" value="c"></td>
+																			<td> switch2ai.com/events/</td>
+																			<td>ailabs.academy/ml</td>
+																			<td>15</td>
+																			<td><button type="button" class="btn btn-success pl-1 pr-1 pt-0 pb-1 mt-1 mr-2">Keep</button><button type="button" class="btn btn-danger pl-1 pr-1 pt-0 pb-1 mt-1 mr-2">Delete</button></td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+										<!-- Backlinks Full Report End -->
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+
+								</ul>
+								<canvas id="myChart6"></canvas>
+								<div class="text-center mt-3">
+									<h6><span style="background-color:#00A0FF; color:#fff; margin-right: 11px;padding-left: 6px;padding-right: 6px;">Nv</span><span style="margin-right: 9px;">New Visitors</span><span style="margin-left: 16px;">71%</span></h6>
+									<h6><span style="background-color:#2a2a72; color:#fff; margin-right: 10px;padding-left:6px;padding-right:6px;">Ov</span>Old Visitors<span style="margin-left: 30px;">29%</span></h6>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<ul class="nav border-bottom" style="height:34px;">
+									<li class="nav-item">
+										<h5 class="text-center mb-4 nav-item-modal">Backlinks</h5>
+									</li>
+									<li class="nav-item ml-auto text-primary seobtn"><button type="button" class="btn btn-primary visitorbtn" data-toggle="modal" data-target="#backlinks">
+										View full report
+									</button></li>
+								</ul>
+								<div class="text-center">
+									<h1>284</h3>
+									<p>50% dofollow</p>
+								</div>
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Referring page</th>
+											<th>DR</th>
+											<th>UR</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>zuidamerika.com</td>
+											<td>67</td>
+											<td>13</td>
+										</tr>
+										<tr>
+											<td>www.guia.com.ve/comercio/</td>
+											<td>78</td>
+											<td>13</td>
+										</tr>
+										<tr>
+											<td>jewjewjew.com/efectos.kosher</td>
+											<td>31</td>
+											<td>24</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<!-- The Modal -->
+					<div class="modal" id="onpageseo">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+
+								<!-- Modal Header -->
+								<div class="modal-header">
+									<button type="button" class="btn btn-danger ml-auto" data-dismiss="modal">&times;</button>
+								</div>
+
+								<!-- Modal body -->
+								<div class="modal-body">
+									<!-- On-Page SEO Full Report Start -->
+										<div class="container-fluid bg-white mt-3 box">
+											<div class="row">
+												<div class="col-md-3 border-right">
+													<h5 class="mt-3">Total Score</h5>
+													<canvas id="myChart7"></canvas>
+													<div class="text-center mt-3">
+														<h6>Crawled Pages</h6>
+														<h1>1000</h1>
+														<div class="progress">
+															<div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+															<div class="progress-bar bg-danger" role="progressbar" style="width: 10%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+															<div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+															<div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+													<div class="pt-3" style="padding-left:20px;">
+														<p class="h7"><i class="fas fa-circle text-success pr-1"></i>Healthy<span style="padding-left:44px;">50</span></p>
+														<p class="h7"><i class="fas fa-circle text-danger pr-1"></i>Broken<span style="padding-left:50px;">10</span></p>
+														<p class="h7"><i class="fas fa-circle text-warning pr-1"></i>Have issues<span style="padding-left:20px;">20</span></p>
+														<p class="h7"><i class="fas fa-circle text-secondary pr-1"></i>Redirects<span style="padding-left:36px;">20</span></p>
+													</div>
+												</div>
+												<div class="col-md-9">
+													<div class="row">
+													<div class="col-md-4 mt-3">
+														<h5 class="border" style="padding: 30px;">Errors</h5>
+													</div>
+													<div class="col-md-4 mt-3 pl-0">
+														<h5 class="border" style="padding: 30px;">Warnings</h5>
+													</div>
+													<div class="col-md-4 mt-3 pl-0">
+														<h5 class="border" style="padding: 30px;">Notices</h5>
+													</div>
+												</div>
+													<h5 class="mt-2">Top Issues</h5>
+													<div class="border p-3">
+														<div class="mt-3">
+															<h6>92 pages don't have meta descriptions <span class="text-white warning bg-warning rounded pl-1 pr-1">warning</span></h6>
+															<p class="grey-color">42% of total errors & warnings</p>
+															<div class="progress">
+																<div class="progress-bar bg-primary" style="width:42%"></div>
+															</div>
+														</div>
+														<div class="mt-3">
+															<h6>91 external links are broken <span class="text-white warning bg-danger rounded pl-1 pr-1">error</span></h6>
+															<p class="grey-color">42% of total errors & warnings</p>
+															<div class="progress">
+																<div class="progress-bar bg-primary" style="width:42%"></div>
+															</div>
+														</div>
+														<div class="mt-3">
+															<h6>16 pages have too much text within the title tags <span class="text-white warning bg-warning rounded pl-1 pr-1">warning</span></h6>
+															<p class="grey-color">7% of total errors & warnings</p>
+															<div class="progress">
+																<div class="progress-bar bg-primary" style="width:7%"></div>
+															</div>
+														</div>
+														<div class="mt-3">
+															<h6>92 pages don't have meta descriptions <span class="text-white warning bg-warning rounded pl-1 pr-1">warning</span></h6>
+															<p class="grey-color">42% of total errors & warnings</p>
+															<div class="progress">
+																<div class="progress-bar bg-primary" style="width:42%"></div>
+															</div>
+														</div>
+														<div class="mt-3">
+															<h6>91 external links are broken <span class="text-white warning bg-danger rounded pl-1 pr-1">error</span></h6>
+															<p class="grey-color">42% of total errors & warnings</p>
+															<div class="progress">
+																<div class="progress-bar bg-primary" style="width:42%"></div>
+															</div>
+														</div>
+														<div class="mt-3">
+															<h6>16 pages have too much text within the title tags <span class="text-white bg-warning rounded pl-1 pr-1">warning</span></h6>
+															<p class="grey-color">7% of total errors & warnings</p>
+															<div class="progress">
+																<div class="progress-bar bg-primary" style="width:7%"></div>
+															</div>
+														</div>
+														<button type="button" class="mt-3 btn btn-secondary">View full report</button>
+													</div>
+												</div>
+											</div> 
+										</div>
+										<!-- On-Page SEO Full Report End -->
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+          
+				</div>
+				<!-- main-content end -->
+			</div>
+			<!-- content end -->
+    </div>
+    <!-- wrapper end -->
+    <!-- chartjs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- Easy Pie Chart JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+
+		
+		<script>
+
+      let labels5= ['Strategy Ideas', 'Backlinks Ideas', 'Technical SEO Ideas', 'Semantic Ideas', 'Content Ideas'];
+      let data5 = [5, 43, 44, 45, 93];
+      let colors5 = ['#C62E65', '#36caab', '#34495e','#b370cf','purple'];
+
+      var ctx5 = document.getElementById('myChart5');
+      var myChart5 = new Chart(ctx5, {
+        responsive: true,
+        type: 'doughnut',   
+        data: {
+            labels: labels5,
+            datasets: [ {
+              data: data5,
+              backgroundColor: colors5
+            }]
+          },
+        options: {
+          title: {
+          },
+          legend: {
+          display: false
+        }
+      }   
+      });
+
+      let labels6= ['New Visitors', 'Returning Visitors'];
+      let data6 = [71, 29];
+      let colors6 = ['#00A0FF', '#2a2a72'];
+
+      var ctx6 = document.getElementById('myChart6');
+      var myChart6 = new Chart(ctx6, {
+        responsive: true,
+        type: 'pie',   
+        data: {
+            labels: labels6,
+            datasets: [ {
+              data: data6,
+              backgroundColor: colors6
+            }]
+          },
+        options: {
+          title: {
+          },
+          legend: {
+          display: false
+        }
+      }   
+      });
+
+      let labels7= ['Total Score'];
+      let data7 = [83, 17];
+      let colors7 = ['#097abe','lavender'];
+
+      var ctx7 = document.getElementById('myChart7');
+      var myChart7 = new Chart(ctx7, {
+        responsive: true,
+        type: 'doughnut',   
+        data: {
+            labels: labels7,
+            datasets: [ {
+              data: data7,
+              backgroundColor: colors7
+            }]
+          },
+        options: {
+          title: {
+          },
+          legend: {
+          display: false
+        }
+      }   
+      });
+
+
+      // let labels7= ['Total Score','Total nit sci'];
+      // let data7 = [83,17];
+      // let colors7 = ['purple'];
+
+      // var ctx7 = document.getElementById('myChart7');
+      // var myChart7 = new Chart(ctx5, {
+      //   responsive: true,
+      //   type: 'doughnut',   
+      //   data: {
+      //       labels: labels7,
+      //       datasets: [ {
+      //         data: data7,
+      //         backgroundColor: colors7
+      //       }]
+      //     },
+      //   options: {
+      //     title: {
+      //     },
+      //     legend: {
+      //     display: false
+      //   }
+      // }   
+      // });
+      
+
+
+    </script>
+		
+ 	</body>
+</html>

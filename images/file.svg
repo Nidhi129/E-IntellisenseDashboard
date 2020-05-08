@@ -1,0 +1,20 @@
+<svg height="130px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.78 153.48">
+    <defs>
+        <style>
+            .cls-1{fill:#ededed;}.cls-2{fill:#00aeef;}
+        </style>
+    </defs>
+    <title>Asset 2</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="objects"><rect class="cls-1" y="43.19" width="122.78" height="110.29"/>
+            <polygon class="cls-2" points="122.78 46.87 122.78 40.1 82.68 40.1 82.68 0 0 0 0 46.87 122.78 46.87"/>
+            <polygon class="cls-2" points="85.4 0 85.4 37.38 122.78 37.38 85.4 0"/>
+            <rect class="cls-2" x="32.51" y="76.25" width="60.24" height="2.97"/>
+            <rect class="cls-2" x="32.51" y="84.4" width="60.24" height="2.97"/>
+            <rect class="cls-2" x="32.51" y="92.56" width="60.24" height="2.97"/>
+            <rect class="cls-2" x="32.51" y="100.71" width="60.24" height="2.97"/>
+            <rect class="cls-2" x="32.51" y="108.87" width="60.24" height="2.97"/>
+            <rect class="cls-2" x="32.51" y="117.02" width="31.82" height="2.97"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>E-Intellisense</title>
+    <link rel="title icon" href="images/title-img.png">
+		<!-- Bootstrap CSS CDN -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+		<!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<!-- Sidebar  -->
+			<nav id="sidebar">
+				<div class="sidebar-header">
+					<h3>E-Intellisense Dashboard</h3>
+				</div>
+
+				<ul class="list-unstyled components">
+					<li class="active">
+						<!-- <a href="#" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+              <i class="fas fa-home"></i> -->
+              <a href="#">
+							Dashboard
+						</a>
+					</li>
+					<li>
+						<a href="submenu/projectprogress.html">
+							<i class="fas fa-briefcase"></i>
+							Project Progress
+            </a>
+          </li>
+          <li>
+            <!-- <a href="/submenu/projectprogress.html" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> -->
+              <a href="submenu/seo.html">
+							<i class="fas fa-copy"></i>
+							SEO
+						</a>
+						<!-- <ul class="collapse list-unstyled" id="pageSubmenu">
+							<li>
+								<a href="#">Profile</a>
+							</li>
+							<li>
+								<a href="#">Page 2</a>
+							</li>
+							<li>
+								<a href="#">Page 3</a>
+							</li>
+						</ul> -->
+					</li>
+					<li>
+						<a href="submenu/socialmedia.html">
+							<i class="fas fa-question"></i>
+							Social Media
+						</a>
+					</li>
+				</ul>
+			</nav>
+
+			<!-- Page Content  -->
+			<div id="content">
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+					<div class="container-fluid">
+						<button type="button" id="sidebarCollapse" class="btn sidebarbtn">
+							<i class="fas fa-align-left"></i>
+							<span></span>
+						</button>
+						<button class="btn sidebarbtn1 d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<i class="fas fa-align-justify"></i>
+            </button>
+            
+
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<div class="col-md-5 col-sm-4 ml-auto">
+                <form>
+                  <div class="input-group">
+                    <input type="text" class="form-control search-input" placeholder="Search...">
+                    <button type="button" class="btn btn-white search-button"><i class="fas fa-search text-danger"></i></button>
+                  </div>
+                </form>
+              </div>
+							<div class="col-md-2">
+                <ul class="navbar-nav">
+                  <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i class="fas fa-comments text-muted fa-lg"></i></a></li>
+                  <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i class="fas fa-bell text-muted fa-lg"></i></a></li>
+                  <li class="nav-item icon-parent"><a href="#" class="nav-link" data-toggle="modal" data-target="#sign-out"><i class="fas fa-sign-out-alt text-danger fa-lg"></i></a></li>
+                </ul>
+              </div>
+						</div>
+					</div>
+				</nav>
+
+        <div class="maincontent">
+          <!-- modal -->
+          <div class="modal fade" id="sign-out">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Want to leave?</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  Press logout to leave
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Stay Here</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Logout</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end of modal -->
+
+          <!-- cards -->
+          <section>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 ml-auto topoverview">
+                  <div class="row">
+                    <div class="col-xl-3 col-sm-6 p-2">
+                      <div class="card gradient-deepblue">
+                        <div class="card-body">
+                          <h5 class="text-white mb-0">9526 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                          <div class="progress my-3 progress1">
+                            <div class="progress-bar progressbar1"></div>
+                          </div>
+                          <p class="mb-0 text-white small-font">Total Orders <span class="float-right">+4.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 p-2">
+                      <div class="card gradient-orange">
+                        <div class="card-body">
+                          <h5 class="text-white mb-0">8323 <span class="float-right"><i class="fas fa-dollar-sign"></i></span></h5>
+                          <div class="progress my-3 progress1">
+                            <div class="progress-bar progressbar1"></div>
+                          </div>
+                          <p class="mb-0 text-white small-font">Total Revenue <span class="float-right">+1.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 p-2">
+                      <div class="card gradient-purple">
+                        <div class="card-body">
+                          <h5 class="text-white mb-0">6200 <span class="float-right"><i class="fa fa-eye"></i></span></h5>
+                            <div class="progress my-3 progress1">
+                              <div class="progress-bar progressbar1"></div>
+                            </div>
+                          <p class="mb-0 text-white small-font">Visitors <span class="float-right">+5.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 p-2">
+                      <div class="card gradient-ibiza">
+                        <div class="card-body">
+                          <h5 class="text-white mb-0">5630 <span class="float-right"><i class="far fa-envelope"></i></span></h5>
+                            <div class="progress my-3 progress1">
+                              <div class="progress-bar progressbar1"></div>
+                            </div>
+                          <p class="mb-0 text-white small-font">Messages <span class="float-right">+2.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                
+                <!-- social media subscribers start 1-->
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-xl-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="media align-items-center">
+                            <div class="w_chart easy-dash-chart1" data-percent="60">
+                              <span class="w_percent">60</span>
+                              <canvas height="110" width="110"></canvas>
+                            </div>
+                            <div class="media-body ml-3">
+                              <h6 class="mb-0">Facebook Followers</h6>
+                              <small class="mb-0">22.14% <i class="fa fa-arrow-up"></i> Since Last Week</small>
+                            </div>
+                            <i class="fab fa-facebook-f text-facebook text-right fa-2x"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="media align-items-center">
+                            <div class="w_chart easy-dash-chart2" data-percent="65">
+                              <span class="w_percent">65</span>
+                              <canvas height="110" width="110"></canvas>
+                            </div>
+                            <div class="media-body ml-3">
+                              <h6 class="mb-0">Twitter Tweets</h6>
+                              <small class="mb-0">32.15% <i class="fa fa-arrow-up"></i> Since Last Week</small>
+                            </div>
+                            <i class="fab fa-twitter text-twitter text-right fa-2x"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-12 col-xl-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="media align-items-center">
+                            <div class="w_chart easy-dash-chart3" data-percent="75">
+                              <span class="w_percent">75</span>
+                              <canvas height="110" width="110"></canvas>
+                            </div>
+                            <div class="media-body ml-3">
+                              <h6 class="mb-0">Youtube Subscribers</h6>
+                              <small class="mb-0">58.24% <i class="fa fa-arrow-up"></i> Since Last Week</small>
+                            </div>
+                            <i class="fab fa-youtube text-youtube fa-2x"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- social media subscribers end -->
+
+                <div class="container-fluid">
+                  <div class="row">
+                    <!-- visitors chart start-->
+                    <div class="col-12 col-lg-8 col-xl-8">
+                      <div class="card">
+                        <div class="card-header">Site Traffic
+                          <div class="card-action">
+                            <div class="dropdown">
+                              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" aria-expanded="false">
+                                <i class="icon-options"></i>
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-right visitor-dropdown" x-placement="top-end">
+                                <a class="dropdown-item" href="javascript:void();">Action</a>
+                                <a class="dropdown-item" href="javascript:void();">Another action</a>
+                                <a class="dropdown-item" href="javascript:void();">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void();">Separated link</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <ul class="list-inline">
+                            <li class="list-inline-item"><i class="fa fa-circle mr-2 new-visitor"></i>New Visitor</li>
+                            <li class="list-inline-item"><i class="fa fa-circle mr-2 new-visitor"></i>Old Visitor</li>
+                          </ul>
+                          <div class="chart-container-1">
+                            <div class="chartjs-size-monitor chart-con-1">
+                              <div class="chartjs-size-monitor-expand chart-con-1a ">
+                                <div class="chart-con-1b">
+                                </div>
+                              </div>
+                              <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                <div style="position:absolute;width:200%;height:200%;left:0; top:0">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <canvas id="chart1" style="display: block; width: 651px; height: 260px;" width="651" height="260" class="chartjs-render-monitor"></canvas>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  
+                                </div>
+                              </div>
+                            </div>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  
+                                </div>
+                              </div>
+                            </div>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  
+                                </div>
+                              </div>
+                            </div>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  
+                                </div>
+                              </div>
+                            </div>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  
+                                </div>
+                              </div>
+                            </div>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  
+                                </div>
+                              </div>
+                            </div>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  
+                                </div>
+                              </div>
+                            </div>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  
+                                </div>
+                              </div>
+                            </div>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  
+                                </div>
+                              </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                        <div class="row m-0 row-group text-center border-top border-light-3">
+                          <div class="col-12 col-lg-4">
+                            <div class="p-3">
+                                <h5 class="mb-0">45.87M</h5>
+                                <small class="mb-0">Overall Visitor <span> <i class="fa fa-arrow-up"></i> 2.43%</span></small>
+                            </div>
+                          </div>
+                          <div class="col-12 col-lg-4">
+                            <div class="p-3">
+                                <h5 class="mb-0">15:48</h5>
+                                <small class="mb-0">Visitor Duration <span> <i class="fa fa-arrow-up"></i> 12.65%</span></small>
+                            </div>
+                          </div>
+                          <div class="col-12 col-lg-4">
+                            <div class="p-3">
+                                <h5 class="mb-0">245.65</h5>
+                                <small class="mb-0">Pages/Visit <span> <i class="fa fa-arrow-up"></i> 5.62%</span></small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- visitors chart end -->
+
+                    <!-- weekly sales chart start-->
+                    <div class="col-12 col-lg-4 col-xl-4">
+                      <div class="card">
+                        <div class="card-header">Weekly sales
+                          <div class="card-action">
+                            <div class="dropdown">
+                              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+                                <i class="icon-options"></i>
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="javascript:void();">Action</a>
+                                <a class="dropdown-item" href="javascript:void();">Another action</a>
+                                <a class="dropdown-item" href="javascript:void();">Something else here</a>
+                                <div class="dropdown-divider">
+                                </div>
+                                <a class="dropdown-item" href="javascript:void();">Separated link</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <div class="chart-container-2">
+                            <div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor">
+                              <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+                                </div>
+                              </div>
+                              <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                <div style="position:absolute;width:200%;height:200%;left:0; top:0">
+                                </div>
+                              </div>
+                            </div>
+                            <canvas id="chart2" style="display: block; width: 293px; height: 188px;" width="293" height="188" class="chartjs-render-monitor"></canvas>
+                          </div>
+                        </div>
+                        <div class="table-responsive">
+                          <table class="table align-items-center">
+                            <tbody>
+                              <tr>
+                                <td><i class="fa fa-circle mr-2" style="color: #14abef"></i> Direct</td>
+                                <td>$5856</td>
+                                <td>+55%</td>
+                              </tr>
+                              <tr>
+                                <td><i class="fa fa-circle mr-2" style="color: #02ba5a"></i>Affiliate</td>
+                                <td>$2602</td>
+                                <td>+25%</td>
+                              </tr>
+                              <tr>
+                                <td><i class="fa fa-circle mr-2" style="color: #d13adf"></i>E-mail</td>
+                                <td>$1802</td>
+                                <td>+15%</td>
+                              </tr>
+                              <tr>
+                                <td><i class="fa fa-circle mr-2" style="color: #fba540"></i>Other</td>
+                                <td>$1105</td>
+                                <td>+5%</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- weekly sales chart end -->
+                  </div>
+                </div>
+                <!-- social media subscribers start 2-->
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-xl-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="media align-items-center">
+                            <div class="w_chart easy-dash-chart4" data-percent="60">
+                              <span class="w_percent">60</span>
+                              <canvas height="110" width="110"></canvas>
+                            </div>
+                            <div class="media-body ml-3">
+                              <h6 class="mb-0">Instagram Followers</h6>
+                              <small class="mb-0">22.14% <i class="fa fa-arrow-up"></i> Since Last Week</small>
+                            </div>
+                            <i class="fab fa-instagram text-instagram text-right fa-2x"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="media align-items-center">
+                            <div class="w_chart easy-dash-chart5" data-percent="65">
+                              <span class="w_percent">65</span>
+                              <canvas height="110" width="110"></canvas>
+                            </div>
+                            <div class="media-body ml-3">
+                              <h6 class="mb-0">LinkedIn Followers</h6>
+                              <small class="mb-0">32.15% <i class="fa fa-arrow-up"></i> Since Last Week</small>
+                            </div>
+                            <i class="fab fa-linkedin-in text-linkedin text-right fa-2x"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-12 col-xl-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="media align-items-center">
+                            <div class="w_chart easy-dash-chart6" data-percent="75">
+                              <span class="w_percent">75</span>
+                              <canvas height="110" width="110"></canvas>
+                            </div>
+                            <div class="media-body ml-3">
+                              <h6 class="mb-0">Google+ Followers</h6>
+                              <small class="mb-0">58.24% <i class="fa fa-arrow-up"></i> Since Last Week</small>
+                            </div>
+                            <i class="fab fa-google-plus-g text-google-plus fa-2x"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- social media subscribers end -->
+              </div>
+            </div>
+          </section>
+          <!-- end of cards -->
+          
+          <!-- tables -->
+          <!-- <section>
+            <div class="container-fluid">
+              <div class="row mb-5">
+                <div class="col-xl-12 col-lg-12 col-md-12 ml-auto">
+                  <div class="row align-items-center">
+                    <div class="col-xl-8 col-12 mb-4 mb-xl-0">
+                      <h3 class="text-muted text-center mb-3">Staff Salary</h3>
+                      <table class="table table-striped bg-light text-center">
+                        <thead>
+                          <tr class="text-muted">
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Salary</th>
+                            <th>Date</th>
+                            <th>Contact</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>1</th>
+                            <td>John</td>
+                            <td>$2000</td>
+                            <td>25/05/2018</td>
+                            <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                          </tr>
+                          <tr>
+                            <th>2</th>
+                            <td>Ann</td>
+                            <td>$2000</td>
+                            <td>25/05/2018</td>
+                            <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                          </tr>
+                          <tr>
+                            <th>3</th>
+                            <td>Mark</td>
+                            <td>$2000</td>
+                            <td>25/05/2018</td>
+                            <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                          </tr>
+                          <tr>
+                            <th>4</th>
+                            <td>Mary</td>
+                            <td>$2000</td>
+                            <td>25/05/2018</td>
+                            <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                          </tr>
+                          <tr>
+                            <th>5</th>
+                            <td>Bob</td>
+                            <td>$2000</td>
+                            <td>25/05/2018</td>
+                            <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                          </tr>
+                        </tbody>
+                      </table> -->
+
+                      <!-- pagination -->
+                      <!-- <nav>
+                        <ul class="pagination justify-content-center">
+                          <li class="page-item">
+                            <a href="#" class="page-link py-2 px-3">
+                              <span>&laquo;</span>
+                            </a>
+                          </li>
+                          <li class="page-item active">
+                            <a href="#" class="page-link py-2 px-3">
+                              1
+                            </a>
+                          </li>
+                          <li class="page-item">
+                            <a href="#" class="page-link py-2 px-3">
+                              2
+                            </a>
+                          </li>
+                          <li class="page-item">
+                            <a href="#" class="page-link py-2 px-3">
+                              3
+                            </a>
+                          </li>
+                          <li class="page-item">
+                            <a href="#" class="page-link py-2 px-3">
+                              <span>&raquo;</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav> -->
+                      <!-- end of pagination -->
+
+                      
+
+                    <!-- </div>
+                    <div class="col-xl-4 col-12">
+                      <h3 class="text-muted text-center mb-3">Recent Payments</h3>
+                      <table class="table table-dark table-hover text-center">
+                        <thead>
+                          <tr class="text-muted">
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>1</th>
+                            <td>Monica</td>
+                            <td>$2000</td>
+                            <td>25/05/2018</td>
+                            <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                          </tr>
+                          <tr>
+                            <th>2</th>
+                            <td>Nick</td>
+                            <td>$2000</td>
+                            <td>25/05/2018</td>
+                            <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                          </tr>
+                          <tr>
+                            <th>3</th>
+                            <td>Alex</td>
+                            <td>$2000</td>
+                            <td>25/05/2018</td>
+                            <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
+                          </tr>
+                          <tr>
+                            <th>4</th>
+                            <td>Jane</td>
+                            <td>$2000</td>
+                            <td>25/05/2018</td>
+                            <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
+                          </tr>
+                          <tr>
+                            <th>5</th>
+                            <td>Michael</td>
+                            <td>$2000</td>
+                            <td>25/05/2018</td>
+                            <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                          </tr>
+                          <tr>
+                            <th>6</th>
+                            <td>Kate</td>
+                            <td>$2000</td>
+                            <td>25/05/2018</td>
+                            <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- pagination -->
+                      <!-- <nav>
+                        <ul class="pagination justify-content-center">
+                          <li class="page-item">
+                            <a href="#" class="page-link py-2 px-3">
+                              <span>Previous</span>
+                            </a>
+                          </li>
+                          <li class="page-item active">
+                            <a href="#" class="page-link py-2 px-3">
+                              1
+                            </a>
+                          </li>
+                          <li class="page-item">
+                            <a href="#" class="page-link py-2 px-3">
+                              2
+                            </a>
+                          </li>
+                          <li class="page-item">
+                            <a href="#" class="page-link py-2 px-3">
+                              3
+                            </a>
+                          </li>
+                          <li class="page-item">
+                            <a href="#" class="page-link py-2 px-3">
+                              <span>Next</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav> -->
+                      <!-- end of pagination -->
+                    <!-- </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section> -->
+          <!-- end of tables  -->
+
+          <section>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 ml-auto">
+                  <div class="row mb-4 align-items-center">
+                    <div class="col-xl-8 col-12 mb-4 mb-xl-0 pl-0 pr-0">
+                      <ul class="nav nav-tabs" style="border: none; padding:20px;">
+                        <a class="navbar-brand  mr-auto">Project Title</a>
+                        <input id="datepicker" width="100" />
+                        <script>
+                            $('#datepicker').datepicker({
+                                uiLibrary: 'bootstrap4'
+                            });
+                        </script>
+                        <i class="fa fa-minus" aria-hidden="true" style="margin: 10px 3px 0 3px; color: grey;"></i>
+                        <input id="datepicker1" width="100" />
+                        <script>
+                            $('#datepicker1').datepicker({
+                                uiLibrary: 'bootstrap4'
+                            });
+                        </script>
+                        <li class="nav-item">
+                          <a class="nav-link disabled" href="#">Team count:5</a>
+                        </li>
+                      </ul>
+
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-toggle="tab" href="#tasks">Tasks</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#discussion">Discussion</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#files">Files</a>
+                        </li>
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                        <div class="tab-pane container active" id="tasks">
+                          <div class="container-fluid bg-white mt-4">
+                            <div class="row py-3 mb-4 task-border align-items-center">
+                              <div class="col-1">
+                                <input type="checkbox" checked>
+                              </div>
+                              <div class="col-sm-9 col-8">
+                                <div id="tasks">  
+                                  <h5>SEO Optimization <span style="font-size: 15px;font-weight:500;color: #515050;">(Assigned To)</span><button style="background-color: white; color: grey; border: none;" data-toggle="modal" data-target="#myModal"><i class="fa fa-ellipsis-h" style="font-weight:500;"></i></button></h3>
+                                  <p style="font-size: 14px;font-weight:500;color: #515050;">Start Date- 12 Sept</p>
+                                  <p style="font-size: 14px;font-weight:500;color: #515050; line-height:0px;">End Date-30 Sept</p>
+                                </div>
+                              </div>
+                              <div class="col-1">
+                                <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                              </div>
+                              <div class="col-1">
+                                <a href="#" data-toggle="tooltip" title="<h6>delete</h6>" data-html="true" data-placement="top"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="container-fluid bg-white">
+                            <div class="row py-3 mb-4 task-border align-items-center">
+                              <div class="col-1">
+                                <input type="checkbox" checked>
+                              </div>
+                              <div class="col-sm-9 col-8">
+                                <div id="tasks">  
+                                  <h5>SEO Optimization <span style="font-size: 15px;font-weight:500;color: #515050;">(Assigned To)</span><button style="background-color: white; color: grey; border: none;" data-toggle="modal" data-target="#myModal"><i class="fa fa-ellipsis-h" style="font-weight:500;"></i></button></h3>
+                                  <p style="font-size: 14px;font-weight:500;color: #515050;">Start Date- 12 Sept</p>
+                                  <p style="font-size: 14px;font-weight:500;color: #515050; line-height:0px;">End Date-30 Sept</p>
+                                </div>
+                              </div>
+                              <div class="col-1">
+                                <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                              </div>
+                              <div class="col-1">
+                                <a href="#" data-toggle="tooltip" title="<h6>delete</h6>" data-html="true" data-placement="top"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="container-fluid bg-white">
+                            <div class="row py-3 mb-4 task-border align-items-center">
+                              <div class="col-1">
+                                <input type="checkbox" checked>
+                              </div>
+                              <div class="col-sm-9 col-8">
+                                <div id="tasks">  
+                                  <h5>SEO Optimization <span style="font-size: 15px;font-weight:500;color: #515050;">(Assigned To)</span><button style="background-color: white; color: grey; border: none;" data-toggle="modal" data-target="#myModal"><i class="fa fa-ellipsis-h" style="font-weight:500;"></i></button></h3>
+                                  <p style="font-size: 14px;font-weight:500;color: #515050;">Start Date- 12 Sept</p>
+                                  <p style="font-size: 14px;font-weight:500;color: #515050; line-height:0px;">End Date-30 Sept</p>
+                                </div>
+                              </div>
+                              <div class="col-1">
+                                <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                              </div>
+                              <div class="col-1">
+                                <a href="#" data-toggle="tooltip" title="<h6>delete</h6>" data-html="true" data-placement="top"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="container-fluid bg-white">
+                            <div class="row py-3 mb-4 task-border align-items-center">
+                              <div class="col-1">
+                                <input type="checkbox" checked>
+                              </div>
+                              <div class="col-sm-9 col-8">
+                                <div id="tasks">  
+                                  <h5>SEO Optimization <span style="font-size: 15px;font-weight:500;color: #515050;">(Assigned To)</span><button style="background-color: white; color: grey; border: none;" data-toggle="modal" data-target="#myModal"><i class="fa fa-ellipsis-h" style="font-weight:500;"></i></button></h3>
+                                  <p style="font-size: 14px;font-weight:500;color: #515050;">Start Date- 12 Sept</p>
+                                  <p style="font-size: 14px;font-weight:500;color: #515050; line-height:0px;">End Date-30 Sept</p>
+                                </div>
+                              </div>
+                              <div class="col-1">
+                                <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                              </div>
+                              <div class="col-1">
+                                <a href="#" data-toggle="tooltip" title="<h6>delete</h6>" data-html="true" data-placement="top"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+                              </div>
+                            </div>
+                          </div>
+
+                            <!-- modal -->
+                            <div class ="modal" id="addtask" style="padding-right:0px; margin-top:150px;" data-keyboard="false" data-backdrop="static">
+                              <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                  <!-- <div class="modal-header">
+                                  </div> -->
+                                  <div class="modal-body">
+                                    <h5 style="font-size: 15px; font-weight:800; color:#515050;">Task Name</h5>
+                                    <input type="text" class="form-control" id="usr">
+                                    <h5 style="font-size: 15px; font-weight:800; color:#515050; margin-top:10px;">Assigned To</h5>
+                                    <input type="text" class="form-control" id="usr">
+                                    <div style="display:flex; margin-top:20px;">
+                                    <input id="datepicker2" width="130" value="9/5/2020" />
+                                    <script>
+                                      $('#datepicker2').datepicker({
+                                          uiLibrary: 'bootstrap4'
+                                      });
+                                    </script>
+                                    <i class="fa fa-minus" aria-hidden="true" style="margin: 10px 3px 0 3px; color: grey;"></i>
+                                    <input id="datepicker3" width="130" value="2/9/2020"/>
+                                    <script>
+                                      $('#datepicker3').datepicker({
+                                        uiLibrary: 'bootstrap4'
+                                      });
+                                    </script>
+                                    </div>
+                                    <h5 style="font-size: 15px; font-weight:800; color:#515050; margin-top:10px;">+Add Label</h5>
+                                    <p style="font-size: 14px;font-weight:500;color:#515050; margin-bottom:0px;"><label><input type="checkbox" value="">Hidden from client</label></p>                                 
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input class="btn btn-primary" style="width: 90px;" data-dismiss="modal" value="Add Task">
+                                    <input class="btn btn-danger" style="width: 90px;" data-dismiss="modal" value="Close">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>         
+    
+                            <div class ="modal" id="myModal" style="padding-right:0px; margin-top:150px;" data-keyboard="false" data-backdrop="static">
+                              <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                  <!-- <div class="modal-header">
+                                  </div> -->
+                                  <div class="modal-body">
+                                    <h5 style="font-size: 15px; font-weight:800; color:#515050;">Task List</h5>
+                                      <p style="font-size: 14px;font-weight:500;color:#515050;">Ongoing Tasks</p>
+                                      <h5 style="font-size: 15px; font-weight:800; color:#515050;">Assigned To</h5>
+                                      <p style="font-size: 14px;font-weight:500;color:#515050;">Member 1</p>
+                                      <h5 style="font-size: 15px; font-weight:800; color:#515050;">+Add Label</h5>
+                                      <p style="font-size: 14px;font-weight:500;color:#515050; margin-bottom:0px;"><label><input type="checkbox" value="">Hidden from client</label></p>
+                                      <p style="font-size: 14px;font-weight:500;color:#515050; margin-bottom:6px;"><label><input type="checkbox" value="">Urgent Task</label></p>
+                                      <p style="font-size: 14px;font-weight:500;color:#515050; margin-bottom:2px;">Add Comment</p>
+                                      <p style="font-size: 14px;font-weight:500;color:#515050; margin-bottom:2px;">Edit</p>
+                                      <p style="font-size: 14px;font-weight:500;color:#515050;">Delete Task</p>
+                                      
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input class="btn btn-danger" style="width: 90px;" data-dismiss="modal" value="Close">
+                                  </div>
+                                </div>
+                              </div>
+                            </div> 
+                            <!-- modal end -->
+                        </div>
+
+                        <!-- discussion start -->
+                        <div class="tab-pane container pl-0 pr-0 fade" id="discussion">
+                          <div class="row bg-white">
+                            <div class="col-12 col-md-8 col-lg-7 col-xl-8 pt-2" style="border-right: solid 1px #dee2e6; padding-left:30px;">
+                              <ul class="nav"> 
+                                <li class="nav-item">
+                                  <a class="navbar-brand text-dark" href="#"><h4 class="mt-2">Task Title</h4></a>
+                                </li>
+                                <li class="nav-item ml-auto">
+                                  <a class="nav-link" href="#"><button type="button" class="btn btn-primary">Edit Task</button></a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="#"><button type="button" class="btn btn-danger">Delete Task</button></a>
+                                </li>
+                              </ul>                       
+                              <h5 class="border border-dark p-3">Task Description</h5>
+                              <h5 class="mt-5">Discussion</h5>
+                              <div class="form-group">
+                                <label for="comment"></label>
+                                <textarea class="form-control" rows="5" placeholder="Add Comment" id="comment"></textarea>
+                                <div class="text-center">
+                                  <button type="button" class="btn btn-success mt-3">+Add</button>
+                                </div>
+                              </div>
+                              <h5>Recent Activities</h5>
+                              <ul>
+                                <li>Member 1 set task1 to urgent</li>
+                                <li>Member 1 set the task to hide from client</li>
+                                <li>Admin made a comment</li>
+                                <li>Admit set the task to not urgent</li>
+                              </ul>
+                            </div>
+                            <div class="col-md-4 col-sm-6 p-0 pt-3">
+                              <div style="border-bottom: solid 1px #dee2e6" class="pr-3 pl-3 pb-3 pt-0">
+                                <h5>Task List</h5>
+                                <h6>List Name</h6>
+                                <h5>Assigned To</h5>
+                                <h6>Name1</h6>
+                                <h5>Start and Due Date</h5>
+                                <h6>Date</h6>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Hide from Client
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Urgent
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="p-3">
+                                <h5>Dependencies</h5>
+                                <h5>Checklist</h5>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Check1
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Check2
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Check3
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">Check4
+                                  </label>
+                                </div>
+                                <button type="button" class="btn btn-primary mt-2">+Add more</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- discussion end -->
+                        
+                        <!--files start-->
+                        <div class="tab-pane container fade" id="files">
+                          <div class="row bg-white">
+                            <div class="col-md-12">
+                              <div class="pl-3 pr-3 pb-3 pt-2">
+                                <ul class="nav">
+                                  <li class="nav-item">
+                                    <button type="button" class="btn btn-primary padding-sm">+ new File</h5>
+                                  </li>
+                                  <li class="nav-item ml-auto">
+                                    <h6>Sort by<button style="background-color: white; color: grey; border: none;"><i class="fa fa-ellipsis-h fa-lg" style="font-weight:500;"></i></button></h6>
+                                  </li>
+                                </ul>
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <h5 class="mt-5 mb-4">19 March 2020</h5>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="card">
+                                      <button class="ml-auto" style="background-color: white; color: grey; border: none;"><i class="fa fa-ellipsis-h fa-lg" style="font-weight:500;"></i></button>
+                                      <img src="images/file.svg" alt="Card image">
+                                      <div class="card-body pt-0">
+                                        <h6 class="mt-2 text-center" style="color: #b2b9bf;">Uploaded by: xyz</h6>
+                                        <h6 class="card-text text-center">abc.pdf</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="card">
+                                      <button class="ml-auto" style="background-color: white; color: grey; border: none;"><i class="fa fa-ellipsis-h fa-lg" style="font-weight:500;"></i></button>
+                                      <img src="images/file.svg" alt="Card image">
+                                      <div class="card-body pt-0">
+                                        <h6 class="mt-2 text-center" style="color: #b2b9bf;">Uploaded by: xyz</h6>
+                                        <h6 class="card-text text-center">abc.pdf</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="card">
+                                      <button class="ml-auto" style="background-color: white; color: grey; border: none;"><i class="fa fa-ellipsis-h fa-lg" style="font-weight:500;"></i></button>
+                                      <img src="images/file.svg" alt="Card image">
+                                      <div class="card-body pt-0">
+                                        <h6 class="mt-2 text-center" style="color: #b2b9bf;">Uploaded by: xyz</h6>
+                                        <h6 class="card-text text-center">abc.pdf</h6>
+                                      </div>
+                                    </div>
+                                  </div>  
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <h5 class="mt-5 mb-4">25 April 2020</h5>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="card">
+                                      <button class="ml-auto" style="background-color: white; color: grey; border: none;"><i class="fa fa-ellipsis-h fa-lg" style="font-weight:500;"></i></button>
+                                      <img src="images/file.svg" alt="Card image">
+                                      <div class="card-body pt-0">
+                                        <h6 class="mt-2 text-center" style="color: #b2b9bf;">Uploaded by: xyz</h6>
+                                        <h6 class="card-text text-center">abc.pdf</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="card">
+                                      <button class="ml-auto" style="background-color: white; color: grey; border: none;"><i class="fa fa-ellipsis-h fa-lg" style="font-weight:500;"></i></button>
+                                      <img src="images/file.svg" alt="Card image">
+                                      <div class="card-body pt-0">
+                                        <h6 class="mt-2 text-center" style="color: #b2b9bf;">Uploaded by: xyz</h6>
+                                        <h6 class="card-text text-center">abc.pdf</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--files end-->
+                      </div>
+                      <!-- tabs-content end -->
+                    </div>
+                    <!-- col1 end -->
+                    <div class="col-xl-4 col-12 mb-4 mb-xl-0 pl-0 pr-0">
+                      <div class="row ml-1 mr-1">
+                        <div class="col-12 lg-6 xl-3">
+                          <!-- chart1 -->
+                          <div class="card">
+                            <div class="card-body">
+                              <p>Page Views</p>
+                              <h4 class="mb-0">8,293 <small class="small-font">5.2% <i class="zmdi zmdi-long-arrow-up"></i></small></h4>
+                            </div>
+                            <div class="chart-container-3">
+                              <canvas id="myChart1"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 lg-6 xl-3">
+                          <!-- chart1 -->
+                          <!-- chart2 -->
+                          <div class="card">
+                            <div class="card-body">
+                              <p>Page Views</p>
+                              <h4 class="mb-0">8,293 <small class="small-font">5.2% <i class="zmdi zmdi-long-arrow-up"></i></small></h4>
+                            </div>
+                            <div class="chart-container-3">
+                              <canvas id="myChart2"></canvas>
+                            </div>
+                          </div>
+                          <!-- chart2 -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- progress / task list -->
+          
+
+          <!-- activities / quick post -->
+          <section>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 ml-auto">
+                  <div class="row align-items-center mb-5">
+                    <div class="col-xl-7">
+                      <h4 class="text-muted mb-4">Recent Customer Activities</h4>
+                      <div id="accordion">
+                        <div class="card">
+                          <div class="card-header">
+                            <button class="btn btn-block bg-secondary text-light text-left" data-toggle="collapse" data-target="#collapseOne">
+                              <img src="images/cust1.jpeg" width="50" class="mr-3 rounded">
+                              John posted a new comment
+                            </button>
+                          </div>
+                          <div class="collapse show" id="collapseOne" data-parent="#accordion">
+                            <div class="card-body">
+                              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis earum modi delectus fugiat consectetur eaque harum obcaecati, saepe id vitae, dolore aliquam! Quos, doloribus quisquam.
+                            </div>                      
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header">
+                            <button class="btn btn-block bg-secondary text-light text-left" data-toggle="collapse" data-target="#collapseTwo">
+                              <img src="images/cust2.jpeg" width="50" class="mr-3 rounded">
+                              Mark posted a new comment
+                            </button>
+                          </div>
+                          <div class="collapse" id="collapseTwo" data-parent="#accordion">
+                            <div class="card-body">
+                              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis earum modi delectus fugiat consectetur eaque harum obcaecati, saepe id vitae, dolore aliquam! Quos, doloribus quisquam.
+                            </div>                      
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header">
+                            <button class="btn btn-block bg-secondary text-light text-left" data-toggle="collapse" data-target="#collapseThree">
+                              <img src="images/cust3.jpeg" width="50" class="mr-3 rounded">
+                              Monica posted a new comment
+                            </button>
+                          </div>
+                          <div class="collapse" id="collapseThree" data-parent="#accordion">
+                            <div class="card-body">
+                              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis earum modi delectus fugiat consectetur eaque harum obcaecati, saepe id vitae, dolore aliquam! Quos, doloribus quisquam.
+                            </div>                      
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header">
+                            <button class="btn btn-block bg-secondary text-light text-left" data-toggle="collapse" data-target="#collapseFour">
+                              <img src="images/cust4.jpeg" width="50" class="mr-3 rounded">
+                              Vivien posted a new comment
+                            </button>
+                          </div>
+                          <div class="collapse" id="collapseFour" data-parent="#accordion">
+                            <div class="card-body">
+                              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis earum modi delectus fugiat consectetur eaque harum obcaecati, saepe id vitae, dolore aliquam! Quos, doloribus quisquam.
+                            </div>                      
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header">
+                            <button class="btn btn-block bg-secondary text-light text-left" data-toggle="collapse" data-target="#collapseFive">
+                              <img src="images/cust5.jpeg" width="50" class="mr-3 rounded">
+                              Nick posted a new comment
+                            </button>
+                          </div>
+                          <div class="collapse" id="collapseFive" data-parent="#accordion">
+                            <div class="card-body">
+                              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis earum modi delectus fugiat consectetur eaque harum obcaecati, saepe id vitae, dolore aliquam! Quos, doloribus quisquam.
+                            </div>                      
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header">
+                            <button class="btn btn-block bg-secondary text-light text-left" data-toggle="collapse" data-target="#collapseSix">
+                              <img src="images/cust6.jpeg" width="50" class="mr-3 rounded">
+                              Ann posted a new comment
+                            </button>
+                          </div>
+                          <div class="collapse" id="collapseSix" data-parent="#accordion">
+                            <div class="card-body">
+                              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis earum modi delectus fugiat consectetur eaque harum obcaecati, saepe id vitae, dolore aliquam! Quos, doloribus quisquam.
+                            </div>                      
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-5 mt-5">
+                      <div class="card rounded">
+                        <div class="card-body">
+                          <h5 class="text-muted text-center mb-4">Quick Status Post</h5>
+                          <ul class="list-inline text-center py-3">
+                            <li class="list-inline-item mr-4">
+                              <a href="#">
+                                <i class="fas fa-pencil-alt text-success"></i>
+                                <span class="h6 text-muted">Status</span>
+                              </a>
+                            </li>
+                            <li class="list-inline-item mr-4">
+                              <a href="#">
+                                <i class="fas fa-camera text-info"></i>
+                                <span class="h6 text-muted">Photo</span>
+                              </a>
+                            </li>
+                            <li class="list-inline-item">
+                              <a href="#">
+                                <i class="fas fa-map-marker-alt text-primary"></i>
+                                <span class="h6 text-muted">Check-in</span>
+                              </a>
+                            </li>
+                          </ul>
+                          <form>
+                            <div class="form-group">
+                              <input type="text" class="form-control py-2 mb-3" placeholder="What's Your Status...">
+                              <button type="button" class="btn btn-block text-uppercase font-weight-bold text-light bg-info py-2 mb-5">Submit Post</button>
+                            </div>
+                          </form>
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="card bg-light">
+                                <i class="far fa-calendar-alt fa-8x text-warning d-block m-auto py-3"></i>
+                                <div class="card-body">
+                                  <p class="card-text text-center font-weight-bold text-uppercase">Mon, may 26</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="card bg-light">
+                                <i class="far fa-clock fa-8x text-danger d-block m-auto py-3"></i>
+                                <div class="card-body">
+                                  <p class="card-text text-center font-weight-bold text-uppercase">3:50 am</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- end of activities / quick post -->
+        </div>
+			</div>
+			<!-- content end -->
+    </div>
+    <!-- wrapper end -->
+    <!-- chartjs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- Easy Pie Chart JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+
+    <script>
+      // mychart 1
+      let labels1= ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug'];
+      let data1 = [60, 75, 65, 130, 145, 110, 145, 155];
+      let colors1 = ['#49a9ea', '#36caab', '#34495e','#b370cf', '#49a9ea', '#36caab'];
+      
+      var ctx1 = document.getElementById('myChart1').getContext('2d');
+      var mychart1 = new Chart(ctx1, {
+        type: 'line',
+        data: {
+          labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+          datasets: [{
+            label: 'Page Views',
+            data: [0, 8, 12, 5, 12, 8, 16, 25, 15, 10, 20, 10, 30],
+            backgroundColor: 'rgba(0, 150, 136, 0.33)',
+            borderColor: '#009688',
+            pointBackgroundColor:'#fff',
+            pointHoverBackgroundColor:'#fff',
+            pointBorderColor :'#fff',
+            pointHoverBorderColor :'#fff',
+            pointBorderWidth :1,
+            pointRadius :0,
+            pointHoverRadius :4,
+            borderWidth: 3
+          }]
+        }
+        ,
+        options: {
+          maintainAspectRatio: false,
+                legend: {
+                  position: false,
+                  display: true,
+              },
+          tooltips: {
+            enabled: false
+          },
+          scales: {
+            xAxes: [{
+              display: false,
+              gridLines: false
+            }],
+            yAxes: [{
+              display: false,
+              gridLines: false
+            }]
+          }
+        }
+      });
+
+      // mychart2
+
+      let labels2= ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug'];
+      let data2 = [65, 75, 95, 130, 145, 110, 145, 155];
+      let colors2 = ['#49a9ea', '#36caab', '#34495e','#b370cf', '#49a9ea', '#36caab'];
+
+      var ctx2 = document.getElementById('myChart2');
+      var myChart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+          datasets: [{
+            label: 'Total Clicks',
+            data: [0, 10, 14, 18, 12, 8, 16, 25, 15, 10, 20, 10, 30],
+            backgroundColor: "#ff6a00"
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          legend: {
+            display: false,
+            labels: {
+            fontColor: '#ddd',  
+            boxWidth:40
+            }
+          },
+          tooltips: {
+            enabled:false
+          },	
+          
+          scales: {
+            xAxes: [{
+              barPercentage: .3,
+            display: false,
+            gridLines: false
+            }],
+            yAxes: [{
+            display: false,
+            gridLines: false
+            }]
+          }
+        }   
+      });
+
+      // chart 1
+		  var ctx = document.getElementById('chart1').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+          datasets: [{
+            label: 'New Visitor',
+            data: [3, 3, 8, 5, 7, 4, 6, 4, 6, 3],
+            backgroundColor: '#14abef',
+            borderColor: "transparent",
+            pointRadius :"0",
+            borderWidth: 3
+          }, {
+            label: 'Old Visitor',
+            data: [7, 5, 14, 7, 12, 6, 10, 6, 11, 5],
+            backgroundColor: "rgba(20, 171, 239, 0.35)",
+            borderColor: "transparent",
+            pointRadius :"0",
+            borderWidth: 1
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          legend: {
+            display: false,
+            labels: {
+            fontColor: '#585757',  
+            boxWidth:40
+            }
+          },
+          tooltips: {
+            displayColors:false
+          },	
+          scales: {
+            xAxes: [{
+            ticks: {
+              beginAtZero:true,
+              fontColor: '#585757'
+            },
+            gridLines: {
+              display: true ,
+              color: "rgba(0, 0, 0, 0.05)"
+            },
+            }],
+            yAxes: [{
+            ticks: {
+              beginAtZero:true,
+              fontColor: '#585757'
+            },
+            gridLines: {
+              display: true ,
+              color: "rgba(0, 0, 0, 0.05)"
+            },
+            }]
+          }
+
+        }
+      });  
+  
+  
+      // chart 2
+
+      var ctx = document.getElementById("chart2").getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ["Direct", "Affiliate", "E-mail", "Other"],
+          datasets: [{
+            backgroundColor: [
+              "#14abef",
+              "#02ba5a",
+              "#d13adf",
+              "#fba540"
+            ],
+            data: [5856, 2602, 1802, 1105],
+            borderWidth: [0, 0, 0, 0]
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          legend: {
+          position :"bottom",	
+          display: false,
+              labels: {
+              fontColor: '#ddd',  
+              boxWidth:15
+            }
+          }
+          ,
+          tooltips: {
+            displayColors:false
+          }
+        }
+      });
+  
+  
+      // easy pie chart 
+
+      $('.easy-dash-chart1').easyPieChart({
+        easing: 'easeOutBounce',
+        barColor : '#3b5998',
+        lineWidth: 10,
+        trackColor : 'rgba(0, 0, 0, 0.08)',
+        scaleColor: false,
+        onStep: function(from, to, percent) {
+          $(this.el).find('.w_percent').text(Math.round(percent));
+        }
+      });	
+
+
+      $('.easy-dash-chart2').easyPieChart({
+        easing: 'easeOutBounce',
+        barColor : '#55acee',
+        lineWidth: 10,
+        trackColor : 'rgba(0, 0, 0, 0.08)',
+        scaleColor: false,
+        onStep: function(from, to, percent) {
+          $(this.el).find('.w_percent').text(Math.round(percent));
+        }
+      });
+
+
+      $('.easy-dash-chart3').easyPieChart({
+        easing: 'easeOutBounce',
+        barColor : '#e52d27',
+        lineWidth: 10,
+        trackColor : 'rgba(0, 0, 0, 0.08)',
+        scaleColor: false,
+        onStep: function(from, to, percent) {
+          $(this.el).find('.w_percent').text(Math.round(percent));
+        }
+      });
+
+      $('.easy-dash-chart4').easyPieChart({
+        easing: 'easeOutBounce',
+        barColor : '#bc2a8d',
+        lineWidth: 10,
+        trackColor : 'rgba(0, 0, 0, 0.08)',
+        scaleColor: false,
+        onStep: function(from, to, percent) {
+          $(this.el).find('.w_percent').text(Math.round(percent));
+        }
+      });
+
+      $('.easy-dash-chart5').easyPieChart({
+        easing: 'easeOutBounce',
+        barColor : '#0e76a8',
+        lineWidth: 10,
+        trackColor : 'rgba(0, 0, 0, 0.08)',
+        scaleColor: false,
+        onStep: function(from, to, percent) {
+          $(this.el).find('.w_percent').text(Math.round(percent));
+        }
+      });
+
+      $('.easy-dash-chart6').easyPieChart({
+        easing: 'easeOutBounce',
+        barColor : '#db4a39',
+        lineWidth: 10,
+        trackColor : 'rgba(0, 0, 0, 0.08)',
+        scaleColor: false,
+        onStep: function(from, to, percent) {
+          $(this.el).find('.w_percent').text(Math.round(percent));
+        }
+      });
+
+      // chart 3
+
+      var ctx = document.getElementById('chart3').getContext('2d');        
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+          datasets: [{
+            label: 'Page Views',
+            data: [0, 8, 12, 5, 12, 8, 16, 25, 15, 10, 20, 10, 30],
+            backgroundColor: 'rgba(0, 150, 136, 0.33)',
+            borderColor: '#009688',
+            pointBackgroundColor:'#fff',
+            pointHoverBackgroundColor:'#fff',
+            pointBorderColor :'#fff',
+            pointHoverBorderColor :'#fff',
+            pointBorderWidth :1,
+            pointRadius :0,
+            pointHoverRadius :4,
+            borderWidth: 3
+          }]
+        }
+        ,
+        options: {
+          maintainAspectRatio: false,
+                legend: {
+                  position: false,
+                  display: true,
+              },
+          tooltips: {
+            enabled: false
+          },
+          scales: {
+            xAxes: [{
+              display: false,
+              gridLines: false
+            }],
+            yAxes: [{
+              display: false,
+              gridLines: false
+            }]
+          }
+        }
+      });
+
+//       // chart 4
+  
+      var ctx = document.getElementById("chart4").getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+          datasets: [{
+            label: 'Total Clicks',
+            data: [0, 10, 14, 18, 12, 8, 16, 25, 15, 10, 20, 10, 30],
+            backgroundColor: "#ff6a00"
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          legend: {
+            display: false,
+            labels: {
+            fontColor: '#ddd',  
+            boxWidth:40
+            }
+          },
+          tooltips: {
+            enabled:false
+          },	
+          
+          scales: {
+            xAxes: [{
+              barPercentage: .3,
+            display: false,
+            gridLines: false
+            }],
+            yAxes: [{
+            display: false,
+            gridLines: false
+            }]
+          }
+        }
+      });
+  
+//       // chart 5
+
+      var ctx = document.getElementById("chart5").getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+          datasets: [{
+            label: 'Total Earning',
+            data: [39, 19, 25, 16, 31, 39, 23, 20, 23, 18, 15, 20],
+            backgroundColor: "#04b35a"
+          },{
+            label: 'Total Sales',
+            data: [27, 12, 26, 15, 21, 27, 13, 19, 32, 22, 18, 30],
+            backgroundColor: "rgba(4, 179, 90, 0.35)"
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          legend: {
+            display: false,
+            position: 'bottom',
+            labels: {
+            fontColor: '#ddd',  
+            boxWidth:13
+            }
+          },
+          tooltips: {
+            enabled:true,
+            displayColors:false,
+          },	
+          
+          scales: {
+            xAxes: [{
+              stacked: true,
+              barPercentage: .4,
+            display: false,
+            gridLines: false
+            }],
+            yAxes: [{
+              stacked: true,
+            display: false,
+            gridLines: false
+            }]
+          }
+        }
+      });
+
+          
+     </script>
+ 	</body>
+</html>
