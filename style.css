@@ -588,11 +588,40 @@ a.article:hover {
           .co-sm2 {
             margin-left: 4px !important;
         }
+           .backlinkssmall {
+               margin-top: 30px;
+           }
     }
-    
+
+    @media (max-width: 770px) {
+        .st-rg1 {
+            margin-left: -11px !important;
+        }
+
+        .te-rg1 {
+            margin-left: 20px !important;
+            margin-right: 13px !important;
+        }
+        
+        .co-rg1 {
+            margin-left:23px !important;
+        }
+
+        .co-rg2 {
+            margin-left:8px !important;
+        }
+
+        .newvisitorsrg {
+            font-size:17px;
+        }
+
+    }
+
     .progress1 {
         height:3px;
     }
+
+    
 
     .progressbar1 {
         width:55%
